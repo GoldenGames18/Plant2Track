@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="430" d:DesignHeight="260"
+		Height="260" Width="430"
+        x:Class="VINCENT.Nicolas.Poo.Tracker.Gui.TaskWindow"
+        >
+	<DockPanel Margin="5" >
+
+		<Border CornerRadius="0"
+					BorderBrush="Black"
+					BorderThickness="1"
+					Padding="8"
+					Grid.Row="1"
+					VerticalAlignment="Top"
+					Name="Border"
+					>
+			<StackPanel Spacing="5" Margin="5">
+				<TextBlock FontSize="17" FontWeight="Bold">
+					Chantier
+				</TextBlock>
+				<TextBlock Name="Assembly">
+
+				</TextBlock>
+
+				<TextBlock FontSize="17" FontWeight="Bold">
+					Tache
+				</TextBlock>
+				<TextBlock Name="Task">
+					test
+				</TextBlock>
+
+
+				<TextBlock FontSize="17" FontWeight="Bold">
+					Date Prévue
+				</TextBlock>
+				<TextBlock Name="Date">
+					test
+				</TextBlock>
+
+				<TextBlock FontSize="17" FontWeight="Bold" Name="Statut">
+					Statut
+				</TextBlock>
+				<Grid>
+
+
+
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="200" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="0" />
+					</Grid.ColumnDefinitions>
+					<Button Background="White" Grid.Column="0"  Name="DateStart" Click="Click_Start">
+
+					</Button>
+					<Button Background="White"  Grid.Column="1" Name="DateEnd" Click="Click_End">
+
+					</Button>
+				</Grid>
+
+				<TextBlock Name="Delay">
+					Jour de retard : 1 jour
+				</TextBlock>
+
+
+			</StackPanel>
+			
+
+		</Border>
+		
+	</DockPanel>
+
+
+	
+	
+	
+	
+	
+		
+</UserControl>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VINCENT.Nicolas.Poo.Tracker.Datas\VINCENT.Nicolas.Poo.Tracker.Datas.csproj" />
+    <ProjectReference Include="..\VINCENT.Nicolas.Poo.Tracker.Domains\VINCENT.Nicolas.Poo.Tracker.Domains.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="150"
+		Height="150" Width="420"
+        x:Class="VINCENT.Nicolas.Poo.Tracker.Gui.CommentaryView"
+        >
+	<DockPanel Margin="5" >
+		
+		<Border CornerRadius="0"
+					BorderBrush="Black"
+					Background="LightGray"
+					BorderThickness="1"
+					Padding="8"
+					Grid.Row="1"
+					VerticalAlignment="Top">
+			<StackPanel Spacing="5" Margin="5">
+				
+
+					<TextBlock FontSize="17" FontWeight="Bold">
+						Titre du commentaire
+					</TextBlock>
+					<TextBlock Name="Commentary" MaxHeight="40">
+						
+					</TextBlock>
+
+					<TextBlock Name="DatePost" HorizontalAlignment="Right">
+						Poster le 99/99/999
+					</TextBlock>
+
+			
+			</StackPanel>
+		</Border>
+		
+	</DockPanel>
+
+
+	
+	
+	
+	
+	
+		
+</UserControl>

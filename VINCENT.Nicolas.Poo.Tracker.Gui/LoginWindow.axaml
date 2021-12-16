@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="280"
+		Width="300" Height="300"
+        x:Class="VINCENT.Nicolas.Poo.Tracker.Gui.LoginWindow"
+        Title="VINCENT.Nicolas.Poo.Tracker.TestAvalonia">
+	<StackPanel Spacing="8" Margin="8" >
+		<TextBlock HorizontalAlignment="Center" >
+			Connexion
+		</TextBlock>
+		<TextBlock HorizontalAlignment="Center" Foreground="Red" Name="Error">
+				
+		</TextBlock>
+		<TextBlock HorizontalAlignment="Left" Height="20" >
+			Login
+		</TextBlock>
+		<TextBox Name="Login" />
+		<TextBlock  HorizontalAlignment="Left" Height="20" >
+			Mots de passe 
+		</TextBlock>
+		<TextBox Name="Mdps" PasswordChar="*"/>
+
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="128" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="128" />
+			</Grid.ColumnDefinitions>
+			<Button Grid.Column="2" Width="128"
+					Click="Click_Leave"
+                    Content="Quitter"
+                    Background="#F04E1F"
+                    Foreground="White"
+                    HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Left" />
+
+			<Button Grid.Column="0"  Width="128"
+					Click="Click_Login"
+                    Content="Connexion"
+                    Background="#32CD32"
+                    Foreground="White"
+                    HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Right" />
+		</Grid>
+		
+		
+		
+	</StackPanel>
+</Window>

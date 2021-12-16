@@ -1,0 +1,108 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:ScottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="600"
+		MinHeight="600" MinWidth="1000"
+        x:Class="VINCENT.Nicolas.Poo.Tracker.Gui.MainWindow"
+        Title="Plan2Track">
+	<TabControl Background="DarkGray">
+		<TabItem Header="Planning">
+			<DockPanel Background="DarkGray" >
+				<TextBlock Name="Test">
+				</TextBlock>
+				<Grid Margin="5" >
+					<Grid.RowDefinitions>
+						<RowDefinition Height="40"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="151"/>
+					</Grid.RowDefinitions>
+					<Border CornerRadius="0"
+							BorderBrush="Black"
+							Background="WhiteSmoke"
+							BorderThickness="1"
+							Padding="10"
+							Grid.Row="0"
+							MinWidth="300"
+							MinHeight="40"
+							MaxWidth="300"
+							MaxHeight="500">
+						<StackPanel>
+							<TextBlock FontSize="16">
+								Option de tri et de filtre
+							</TextBlock>
+						</StackPanel>
+					</Border>
+					<Border CornerRadius="0"
+							BorderBrush="Black"
+							Background="LightGray"
+							BorderThickness="1"
+							Padding="8"
+							Grid.Row="1"
+							MinWidth="300"
+							MinHeight="0"
+							MaxHeight="300" VerticalAlignment="Top">
+						<StackPanel Margin="15">
+							<TextBlock Padding="10">
+								Triez par
+							</TextBlock>
+							<ComboBox MinWidth="250" SelectedIndex="0" Name="Tri">
+								<ComboBoxItem >Par date de début prévu</ComboBoxItem>
+								<ComboBoxItem >Croissant </ComboBoxItem>
+								<ComboBoxItem >Décroissant </ComboBoxItem>
+							</ComboBox>
+							<TextBlock Padding="10">
+								Filtrez par
+							</TextBlock >
+							<ComboBox MinWidth="250" SelectedIndex="0" Name="Filter">
+								<ComboBoxItem >Tous montrer </ComboBoxItem>
+								<ComboBoxItem >Filtrer par un statut </ComboBoxItem>
+								<ComboBoxItem >Filtrer par nom de chantier </ComboBoxItem>
+								<ComboBoxItem >Filtrer par date </ComboBoxItem>
+							</ComboBox>
+							<TextBlock Padding="10">
+								Valeur du filtre
+							</TextBlock >
+							<TextBox MinWidth="250" Width="200" HorizontalAlignment="Left" Name="ValueFilter" />
+							<Button Margin="10"
+								Content="Filtrer"
+								HorizontalContentAlignment="Center"
+								HorizontalAlignment="Left"
+								Click="Click_Filter"/>
+						</StackPanel>
+					</Border>
+				</Grid>
+				<ScrollViewer  ScrollViewer.VerticalScrollBarVisibility="Visible">
+					<WrapPanel Name="TaskList"/>
+				</ScrollViewer>
+			</DockPanel>
+		</TabItem>
+		<TabItem Header="Rapport">
+			<StackPanel>
+				<Grid Margin="0">
+					<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="300" />
+					<ColumnDefinition Width="300" />
+					<ColumnDefinition Width="150" />
+					<ColumnDefinition Width="150" />
+				</Grid.ColumnDefinitions>
+				<DatePicker Header="Début" Grid.Column="0" Name="Start" />
+				<DatePicker Header="Fin" Grid.Column="1" Name="End"/>
+				<StackPanel Grid.Column="2">
+					<TextBlock Text="Resolution"/>
+					<ComboBox MinWidth="131" SelectedIndex="0" Name="Graph"  >
+						<ComboBoxItem >Par jour</ComboBoxItem>
+						<ComboBoxItem >Par semaine </ComboBoxItem>
+						<ComboBoxItem >Par mois  </ComboBoxItem>
+					</ComboBox>
+				</StackPanel>
+				<Button Grid.Column="3" VerticalAlignment="Bottom" Click="Click_Graph"> Générer</Button>
+				</Grid>
+				<StackPanel Margin="5" >
+					<ScottPlot:AvaPlot Name="PlotContainer" Height="300" />
+				</StackPanel>
+			</StackPanel>
+		</TabItem>
+	</TabControl>
+</Window>

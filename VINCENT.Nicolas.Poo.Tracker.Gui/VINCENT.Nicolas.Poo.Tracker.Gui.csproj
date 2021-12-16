@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.10" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.10" />
+    <PackageReference Include="ScottPlot.Avalonia" Version="4.1.27" />
+   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VINCENT.Nicolas.Poo.Tracker.Controllers\VINCENT.Nicolas.Poo.Tracker.Controllers.csproj" />
+    <ProjectReference Include="..\VINCENT.Nicolas.Poo.Tracker.Domains\VINCENT.Nicolas.Poo.Tracker.Domains.csproj" />
+  </ItemGroup>
+</Project>
