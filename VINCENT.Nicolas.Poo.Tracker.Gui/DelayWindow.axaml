@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="50"
+		Height="50" Width="500"
+        x:Class="VINCENT.Nicolas.Poo.Tracker.Gui.DelayWindow"
+        >
+	<DockPanel Margin="5" >
+
+		<Grid Margin="5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="250" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="250" />
+			</Grid.ColumnDefinitions>
+
+
+			
+				<TextBlock FontSize="17" FontWeight="Bold" Grid.Column="0" Name="AssemblyName">
+					e
+				</TextBlock>
+				<TextBlock Grid.Column="2" Name="Delay">
+					Jour de retard
+				</TextBlock>
+
+			
+			
+		</Grid>
+			
+		
+	</DockPanel>
+
+
+	
+	
+	
+	
+	
+		
+</UserControl>

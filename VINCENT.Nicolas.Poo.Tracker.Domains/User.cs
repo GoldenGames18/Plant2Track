@@ -14,18 +14,18 @@ namespace VINCENT.Nicolas.Poo.Tracker.Domains
         private string _firstName;
 
 
-        private Login _login;
+        private readonly Login _login;
         /// <summary>
         /// Constructeur login
         /// </summary>
         /// <param name="_login">Login qui possède son login et mots de passe</param>
         /// <param name="_name">nom  utilsiateur </param>
         /// <param name="_firstName">prenom </param>
-        public User(Login _login, string _name = "", string _firstName = "")
+        public User(Login login, string name = "", string firstName = "")
         {
-            this._login = _login;
-            this._name = _name;
-            this._firstName = _firstName;
+            this._login = login;
+            this._name = name;
+            this._firstName = firstName;
 
         }
       

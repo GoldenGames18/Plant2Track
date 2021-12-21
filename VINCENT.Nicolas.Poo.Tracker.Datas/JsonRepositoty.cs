@@ -4,22 +4,31 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using VINCENT.Nicolas.Poo.Tracker.Domains;
 
 namespace VINCENT.Nicolas.Poo.Tracker.Datas
 {
-    public class JsonRepositoty
+
+    public class JsonRepositoty : IStorageFactory
     {
-      
+
+        
+        public List<User> Users { get; set; }
+
+        public List<Planning> Planning { get; set; }
+
+
+
         /// <summary>
         /// va aller chercher toute les taches dans chaque fichier
         /// </summary>
         /// <returns></returns>
-        public List<Planning> LoadPlanning()
+        public void LoadPlanning()
         {
             List<Planning> plannings = new();
 
-            string path = @"c:\temp";
+            string path = @"C:\temp\planningNicolasVincent";
 
             var file = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
 
@@ -33,7 +42,8 @@ namespace VINCENT.Nicolas.Poo.Tracker.Datas
                     task.Planning = item.Name;
                 }
             }
-            return plannings;
+            Planning = plannings;
+            
         }
 
         /// <summary>
@@ -47,7 +57,9 @@ namespace VINCENT.Nicolas.Poo.Tracker.Datas
 
             using var streamReader = new StreamReader(path);
             using var jsonReader = new JsonTextReader(streamReader);
+         
             var assembly = serializer.Deserialize<Planning>(jsonReader);
+           
             plannings.Add(assembly);
         }
 
@@ -60,7 +72,8 @@ namespace VINCENT.Nicolas.Poo.Tracker.Datas
         public List<Task> TakeTaskUserConnected(string code)
         {
             List<Task> _task = new();
-            foreach (var item in LoadPlanning())
+            LoadPlanning();
+            foreach (var item in Planning) //to do edit futur
             {
                 _task.AddRange(item.TakeTask(code));
             }
@@ -72,17 +85,16 @@ namespace VINCENT.Nicolas.Poo.Tracker.Datas
         /// </summary>
         /// <param name="update"></param>
         /// <returns></returns>
-        public List<Planning> SaveData(Task update) 
+        public void WritePlanning(Task update) 
         {
-            List<Planning> plannings = LoadPlanning();
-            foreach (var item in plannings)
+            
+            foreach (var item in Planning)
             {
                 item.Update(update);
             }
 
-            UpdateJson(plannings, update);
-            return plannings;
-        
+            UpdateJson(Planning, update);
+          
 
 
         }
@@ -120,18 +132,23 @@ namespace VINCENT.Nicolas.Poo.Tracker.Datas
 
             foreach (var item in planning.Tasks)
             {
-                JObject task = new();
-                task.Add("description", item.Description);
-                task.Add("code", item.Code);
-                task.Add("dateStart", item.DateStart);
-                task.Add("dateEnd", item.DateEnd);
-                task.Add("EffectiveDateStrart", item.EffectiveDateStart.ToString("yyyy-MM-dd"));
-                task.Add("EffectiveDateEnd", item.EffectiveDateEnd.ToString("yyyy-MM-dd"));
-                arrayPlanning.Add(task);
+                CreateJsonObejt(arrayPlanning, item);
             }
 
 
             return arrayPlanning;
+        }
+
+        private static void CreateJsonObejt(JArray arrayPlanning, Task item)
+        {
+            JObject task = new();
+            task.Add("description", item.Description);
+            task.Add("code", item.Code);
+            task.Add("dateStart", item.DateStart);
+            task.Add("dateEnd", item.DateEnd);
+            task.Add("EffectiveDateStrart", item.EffectiveDateStart.ToString("yyyy-MM-dd"));
+            task.Add("EffectiveDateEnd", item.EffectiveDateEnd.ToString("yyyy-MM-dd"));
+            arrayPlanning.Add(task);
         }
 
         /// <summary>
@@ -153,6 +170,29 @@ namespace VINCENT.Nicolas.Poo.Tracker.Datas
             assembly.WriteTo(writer);
         }
 
-        
+
+        /// <summary>
+        /// va aller cherger tous le fichier json de chaque user
+        /// </summary>
+        /// <returns></returns>
+        public List<User> LoadUser()
+        {
+
+
+            string path =@"..\..\..\..\VINCENT.Nicolas.Poo.Tracker.Datas\DataUsers\User.json";
+           
+
+            JsonSerializer serializer = new();
+            using var streamReader = new StreamReader(path);
+            using var jsonReader = new JsonTextReader(streamReader);
+
+            var users = serializer.Deserialize<List<User>>(jsonReader);
+
+            Users = users;
+
+
+            return users;
+
+        }
     }
 }

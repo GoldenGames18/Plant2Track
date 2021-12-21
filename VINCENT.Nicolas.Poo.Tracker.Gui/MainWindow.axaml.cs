@@ -2,11 +2,13 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-
+using ScottPlot;
+using ScottPlot.Avalonia;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using VINCENT.Nicolas.Poo.Tracker.Controllers;
+using VINCENT.Nicolas.Poo.Tracker.Datas;
 using VINCENT.Nicolas.Poo.Tracker.Domains;
 
 
@@ -15,6 +17,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
     public partial class MainWindow : Window, IMainView
     {
         WrapPanel _taskView;
+        WrapPanel _delay;
 
         ComboBox _filter;
         ComboBox _tri;
@@ -25,13 +28,20 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
         DatePicker _startDate;
         DatePicker _endDate;
         ComboBox _genrateGraph;
- 
+
+        AvaPlot _plotContainer;
+
+        TextBlock _erreurDate;
+
+        
+        public JsonRepositoty Json { get; set; }
+        
+
 
         public event EventHandler<List<string>> Filter;
         public event EventHandler<List<string>> Graph;
 
         private ITaskRepository _repository;
-        private ITaskRepository _copyPlanning;
 
         public ITaskRepository Tasks
         {
@@ -39,14 +49,12 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
             set
             {
                 _repository = value;
-                _copyPlanning = value;
                 _repository.SortDate();
-
                 _repository.CollectionChanged += Repository_CollectionChanged;
             }
+
+            
         }
-
-
 
         public MainWindow()
         {
@@ -54,7 +62,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
             LocateControl();
 #if DEBUG
             this.AttachDevTools();
-            PlotDiagram();
+            
 
 
 #endif
@@ -63,17 +71,15 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
         private void LocateControl()
         {
             _taskView = this.FindControl<WrapPanel>("TaskList");
-
+            _delay = this.FindControl<WrapPanel>("Delay");
             _tri = this.FindControl<ComboBox>("Tri");
             _filter = this.FindControl<ComboBox>("Filter");
-
             _valueFilter = this.FindControl<TextBox>("ValueFilter");
-
-
             _endDate = this.FindControl<DatePicker>("End");
             _startDate = this.FindControl<DatePicker>("Start");
             _genrateGraph = this.FindControl<ComboBox>("Graph");
-
+            _plotContainer = this.FindControl<AvaPlot>("PlotContainer");
+            _erreurDate = this.FindControl<TextBlock>("erreurDate");
         }
 
         private void InitializeComponent()
@@ -86,15 +92,34 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
             if (NotifyCollectionChangedAction.Reset != e.Action) return;
 
             _taskView.Children.Clear();
+            UpdateTask();
+            _repository.CreateGraph(_repository.Start, _repository.End, _repository.Value);
+            UpdatePlot();
+            GenerateDelay();
+
+        }
+
+        private void UpdateTask()
+        {
             foreach (var vm in _repository)
             {
                 var mainWindow = new TaskWindow { ViewModel = new TaskViewModel(vm) };
-                var controlleur = new TaskController(Tasks);
+                var controlleur = new TaskController(Tasks, Json);
                 mainWindow.StartTask += controlleur.AffectDateTaskStart;
                 mainWindow.EndTask += controlleur.AffectDateTaskEnd;
                 _taskView.Children.Add(mainWindow);
             }
+        }
 
+        private void GenerateDelay()
+        {
+            var delay = _repository.ExtractAssembly();
+            _delay.Children.Clear();
+            foreach (var item in delay)
+            {
+                var mainWindow = new DelayWindow { ViewModel = new DelayViewModel(item.Value) };
+                _delay.Children.Add(mainWindow);
+            }
         }
 
         private void Click_Filter(object? sender, RoutedEventArgs args)
@@ -113,44 +138,57 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
 
         private void Click_Graph(object? sender, RoutedEventArgs args) 
         {
-            List<string> save = new();
             DateTimeOffset? dateStart = _startDate.SelectedDate;
-            var start = dateStart.Value.DateTime;
-            save.Add(start.ToString("yyyy-MM-dd"));
-
-
             DateTimeOffset? dateEnd = _endDate.SelectedDate;
-            var end = dateEnd.Value.DateTime;
-            save.Add(end.ToString("yyyy-MM-dd"));
-
-            save.Add(_genrateGraph.SelectedIndex + "");
-
-            Graph(this, save);
-
+            if (dateStart != null && dateEnd !=null)
+            {
+                GenerateGraph(dateStart, dateEnd);
+            }
+            else
+            {
+                _erreurDate.Text = "Un des champ est vide merci de le compléter ";
+            }
         }
 
-        private void PlotDiagram()
+        private void GenerateGraph(DateTimeOffset? dateStart, DateTimeOffset? dateEnd)
         {
-           // var plotContainer = this.FindControl<AvaPlot>("PlotContainer");
-            //var mainPlot = new Plot();
-            
+            try
+            {
+                List<string> save = new();
+                SaveFilter(dateStart, dateEnd, save);
+                Graph(this, save);
+                UpdatePlot();
+                _erreurDate.Text = "";
+            }
+            catch (Exception ex)
+            {
+                _erreurDate.Text = ex.Message;
 
-            double[] dataX = new double[] { 1, 2, 3, 4, 5 };
-            double[] dataZ = new double[] { 5, 10, 15, 20, 100 };
-
-
-            //var bars = mainPlot.AddBar(dataZ, dataX);
-
-            DateTime dateTime = new(2021, 12, 12);
-            int month = dateTime.Month;
-
-    
-
-            //plotContainer.Reset(mainPlot);
-            //plotContainer.Refresh();
-            
-
+            }
         }
+
+        private void SaveFilter(DateTimeOffset? dateStart, DateTimeOffset? dateEnd, List<string> save)
+        {
+            var start = dateStart.Value.DateTime;
+            var end = dateEnd.Value.DateTime;
+            save.Add(start.ToString("yyyy-MM-dd"));
+            save.Add(end.ToString("yyyy-MM-dd"));
+            save.Add(_genrateGraph.SelectedIndex + "");
+        }
+
+        private void UpdatePlot()
+        {
+            var mainPlot = new Plot();
+            mainPlot.AddBar(_repository.TabValue, _repository.TabIndex);
+            _plotContainer.Reset(mainPlot);
+            _plotContainer.Refresh();
+            _startDate.SelectedDate = new DateTimeOffset(_repository.Start);
+            _endDate.SelectedDate = new DateTimeOffset(_repository.End);
+        }
+
+        
+
+        
 
 
     }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 
 
@@ -10,6 +11,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Domains
         /// affecter un login 
         /// </summary>
         public Login Last { get; private set; }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

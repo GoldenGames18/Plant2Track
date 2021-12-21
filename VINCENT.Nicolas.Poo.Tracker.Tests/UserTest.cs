@@ -1,6 +1,9 @@
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using VINCENT.Nicolas.Poo.Tracker.Datas;
 using VINCENT.Nicolas.Poo.Tracker.Domains;
 
 namespace VINCENT.Nicolas.Poo.Tracker.Tests
@@ -49,53 +52,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Tests
             Assert.AreEqual(login, user.Login);
         }
 
-        [Test]
-        public void Testdate()
-        {
-            /*DateTime start = new(2021,12,31);
-            DateTime end = new(2022,02,10);
-            int value = 0;
-            while (end.CompareTo(start) != 0)
-            {
-                start = start.AddDays(1);
-                value++;
-                
-            }*/
-            /*
-            DayOfWeek dayOfWeek = start.DayOfWeek;
-            int timebetween = (end - start).Days;
-            //Assert.AreEqual(365, value);
-            
-
-
-            int time = (start.Day % 7)+1;
-
-            //Assert.AreEqual(time, 5);
-
-
-            string path = @"c:\temp";
-            
-
-            JsonRepositoty json = new();
-
-            List<Planning> list = json.LoadPlanning();
-
-            Task old = new("a", "H042", DateTime.Parse("2021-12-15"), DateTime.Parse("2021-12-16"));
-            Task task = new("a", "H042", DateTime.Parse("2021-12-15"), DateTime.Parse("2021-12-16"));
-            old.Planning = "a";
-            task.Planning = "a";
-            task.AffectDateEnd();
-
-            list = json.SaveData(task);
-
-            */
-
-            int value = ISOWeek.GetWeekOfYear(DateTime.Now);
-            Console.WriteLine(value);
-
-
-
-        }
+       
 
 
 

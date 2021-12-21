@@ -68,5 +68,26 @@ namespace VINCENT.Nicolas.Poo.Tracker.Domains
         void ReverseDateStart();
 
 
+
+        /// <summary>
+        /// generation du graphique 
+        /// </summary>
+        /// <param name="dateTime1"></param>
+        /// <param name="dateTime2"></param>
+        /// <param name="v"></param>
+        void CreateGraph(DateTime start, DateTime end, string type);
+
+
+        public double[] TabValue { get; set; }
+        public double[] TabIndex { get; set; }
+
+
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+
+        public string  Value { get; set; }
+
+        public Dictionary<string, List<Task>> ExtractAssembly();
+
     }
 }

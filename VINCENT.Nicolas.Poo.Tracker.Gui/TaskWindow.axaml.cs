@@ -95,7 +95,6 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
                 _effectiveDateStart.Content = "Commencer";
                 _effectiveDateEnd.Content = "Terminer";
                 _effectiveDateEnd.IsEnabled = false;
-
             }
             else if (value.EffectiveDateEnd == default)
             {

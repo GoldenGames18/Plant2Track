@@ -26,6 +26,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
             }
         }
   
+        
 
 
         public LoginWindow()
@@ -69,12 +70,13 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
             }
             catch (Exception ex)
             {
-                errorMessage(ex.Message);
+                ErrorMessage(ex.Message);
             }
         }
 
-        private void errorMessage(string error)
+        private void ErrorMessage(string error)
         {
+            
             _error.Text = error;
             
         }

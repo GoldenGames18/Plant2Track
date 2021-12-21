@@ -14,4 +14,12 @@
     <ProjectReference Include="..\VINCENT.Nicolas.Poo.Tracker.Controllers\VINCENT.Nicolas.Poo.Tracker.Controllers.csproj" />
     <ProjectReference Include="..\VINCENT.Nicolas.Poo.Tracker.Domains\VINCENT.Nicolas.Poo.Tracker.Domains.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DelayWindow.axaml.cs">
+      <DependentUpon>DelayWindow.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="ErreurWindow.axaml.cs">
+      <DependentUpon>ErreurWindow.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

@@ -29,7 +29,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Tests
 
 
         [Test]
-        public void toStringUseOnCommentary()
+        public void ToStringUseOnCommentary()
         {
             Commentary commentary = new("test", "test");
             DateTime auj = DateTime.Now;

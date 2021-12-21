@@ -18,8 +18,10 @@ namespace VINCENT.Nicolas.Poo.Tracker.Domains
     }
     public class Task
     {
-        private  string  _description, _code, _planningName ;
-        private DateTime _dateEnd, _dateStart, _EffectiveDateEnd, _EffectiveDateStrart;
+        private  string  _description, _planningName ;
+        private readonly string _code;
+        private readonly DateTime _dateEnd, _dateStart;
+        private DateTime  _EffectiveDateEnd, _EffectiveDateStrart;
        
 
 
@@ -194,7 +196,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Domains
         /// </summary>
         public void AffectDateStart() 
         {
-            _EffectiveDateStrart = DateTime.Now;
+            _EffectiveDateStrart = DateTime.Today;
         }
 
         /// <summary>
@@ -202,7 +204,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Domains
         /// </summary>
         public void AffectDateEnd()
         {
-            _EffectiveDateEnd = DateTime.Now;
+            _EffectiveDateEnd = DateTime.Today;
         }
 
         /// <summary>

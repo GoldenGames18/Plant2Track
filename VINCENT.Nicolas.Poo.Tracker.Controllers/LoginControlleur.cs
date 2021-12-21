@@ -15,29 +15,34 @@ namespace VINCENT.Nicolas.Poo.Tracker.Controllers
         private readonly Func<string, string, Login>  _login;
 
 
-
+        private readonly JsonRepositoty _json;
 
         public event EventHandler AboutToQuit;
-        public event EventHandler<Domains.Login> LoginRequested;
+        public event EventHandler<Login> LoginRequested;
 
         /// <summary>
         /// Constructeur de notre supperviseur
         /// </summary>
         /// <param name="loginView"></param>
-        public LoginControlleur( Func<string, string, Login> login)
+        public LoginControlleur( Func<string, string, Login> login, JsonRepositoty json)
         {
-            _login = login;  
+            _login = login;
+            _json = json;
         }
 
 
         #region CONNEXION SYSTEME 
 
         /*************************************************(Système de connection)****************************************************/
-
+        /// <summary>
+        /// verification de connection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="login"></param>
         public void VerifyConnection(object sender, Login login)
         {
 
-                if (!login.ListMumber(new AllData().AllUsers())) return;
+                if (!login.ListMumber(_json.Users)) return;
                 NotifyPlayerIsConnected(NewLogin(login.Code, login.Mdps));
             
  
@@ -69,7 +74,6 @@ namespace VINCENT.Nicolas.Poo.Tracker.Controllers
         /// <param name="e"></param>
         public void OnQuitRequested(object sender, EventArgs e)
         {
-            
             NotifyAboutQuitting();
         }
 

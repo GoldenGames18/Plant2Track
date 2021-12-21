@@ -1,0 +1,46 @@
+[
+	{
+		login : {
+			code : "D007",
+			mdps : "DaniBond"
+		},
+		name : "Bond",
+		firstName : "Dani"
+
+	},
+	{
+		login : {
+			code : "G021",
+			mdps : "GretaRulez"
+		},
+		name : "Thumberg",
+		firstName : "Greta"
+
+	},
+	{
+		login : {
+			code : "H042",
+			mdps : "H2G2"
+		},
+		name : "Hendrikx",
+		firstName : "Nicolas"
+
+	},
+	{
+		login : {
+			code : "F004",
+			mdps : "OktoberFest"
+		},
+		name : "Muller",
+		firstName : "Gerard"
+
+	},
+	{
+		login : {
+			code : "S010",
+			mdps : "HELMo"
+		},
+		name : "Lamy",
+		firstName : "Simon"
+	}
+]

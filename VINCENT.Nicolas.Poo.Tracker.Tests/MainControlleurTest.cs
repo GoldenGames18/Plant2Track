@@ -173,5 +173,29 @@ namespace VINCENT.Nicolas.Poo.Tracker.Tests
 
         }
 
+
+        [Test]
+        public void NotifiesCreateGraphByDay()
+        {
+            Mock<IMainView> mockedView = new();
+            Mock<ITaskRepository> mockRepository = new();
+            Mock<EventHandler<List<string>>> mockedObserver = new();
+
+
+            var sut = new MainControlleur(mockRepository.Object);
+            sut.Graph += mockedObserver.Object;
+
+
+            List<string> vs = new();
+            vs.Add(DateTime.Today.ToString());
+            vs.Add(DateTime.Today.AddDays(5).ToString());
+            vs.Add("0");
+
+            sut.GenerateGraph(this, vs);
+
+            mockedObserver.Verify(observer => observer(sut, It.IsAny<List<string>>()));
+
+        }
+
     }
 }

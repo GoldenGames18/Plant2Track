@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VINCENT.Nicolas.Poo.Tracker.Domains;
 
+#nullable disable
 namespace VINCENT.Nicolas.Poo.Tracker.Controllers
 {
     public class MainControlleur
@@ -23,12 +21,21 @@ namespace VINCENT.Nicolas.Poo.Tracker.Controllers
             UpdateView();
 
         }
+        /// <summary>
+        /// update de la view
+        /// </summary>
         public void UpdateView()
         {
             _repository.Update();
         }
 
+        #region FilterAplication
 
+        /// <summary>
+        /// creation des filtre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="value"> collection de string pour les filtres</param>
         public void Affect(object sender,  List<string> value)
         {
 
@@ -116,19 +123,29 @@ namespace VINCENT.Nicolas.Poo.Tracker.Controllers
             }
         }
 
+        #endregion
 
-
+        /// <summary>
+        /// generation du fitre pour le graphic
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="value"></param>
         public void GenerateGraph(object sender, List<string> value) 
         {
 
-            if (string.IsNullOrWhiteSpace(value[0]) && string.IsNullOrWhiteSpace(value[1]))
+            if (DateTime.Parse(value[0]) > DateTime.Parse(value[1]))
             {
+                throw new Exception("La Date de début est plus grande que la date de fin");
+            }
+            else
+            {
+                _repository.CreateGraph(DateTime.Parse(value[0]), DateTime.Parse(value[1]), value[2]);
 
+
+                Graph?.Invoke(this, value);
             }
 
-
-
-            Graph?.Invoke(this, value);
+            
         }
 
 

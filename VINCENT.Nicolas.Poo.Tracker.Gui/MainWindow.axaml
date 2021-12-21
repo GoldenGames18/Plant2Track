@@ -80,6 +80,7 @@
 		</TabItem>
 		<TabItem Header="Rapport">
 			<StackPanel>
+				<TextBlock Name="erreurDate" Foreground="Red" ></TextBlock>
 				<Grid Margin="0">
 					<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="300" />
@@ -101,6 +102,9 @@
 				</Grid>
 				<StackPanel Margin="5" >
 					<ScottPlot:AvaPlot Name="PlotContainer" Height="300" />
+				</StackPanel>
+				<StackPanel Width="490">
+					<WrapPanel Name="Delay"/>
 				</StackPanel>
 			</StackPanel>
 		</TabItem>

@@ -58,7 +58,6 @@ namespace VINCENT.Nicolas.Poo.Tracker.Tests
             Task task9 = new("Installer électricité", "D007", new DateTime(2021, 09, 05), new DateTime(2021, 09, 07), new DateTime(2021, 09, 05), new DateTime(2021, 09, 06));
             Task task2 = new("Installer eau", "G021", new DateTime(2021, 09, 01), new DateTime(2021, 09, 05), new DateTime(2021, 09, 01));
             Planning planning = new("test", task1, task2);
-            List<Task> taskUser = planning.TakeTask("D007");
             Assert.AreEqual(null, planning.GiveNamePojectByTask(task9));
             Assert.AreEqual("test", planning.GiveNamePojectByTask(task2));
         }
@@ -67,7 +66,6 @@ namespace VINCENT.Nicolas.Poo.Tracker.Tests
         public void TaketaskListOfAssembly()
         {
             Task task1 = new("Installer electricité", "D007", new DateTime(2021, 09, 01), new DateTime(2021, 09, 06), new DateTime(2021, 09, 01), new DateTime(2021, 09, 06));
-            Task task9 = new("Installer électricité", "D007", new DateTime(2021, 09, 05), new DateTime(2021, 09, 07), new DateTime(2021, 09, 05), new DateTime(2021, 09, 06));
             Task task2 = new("Installer eau", "G021", new DateTime(2021, 09, 01), new DateTime(2021, 09, 05), new DateTime(2021, 09, 01));
             Planning planning = new("test", task1, task2);
             List<Task> tasks = new();

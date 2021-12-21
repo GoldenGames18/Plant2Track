@@ -10,6 +10,10 @@ namespace VINCENT.Nicolas.Poo.Tracker.Domains
 {
     public interface ILoginView : INotifyPropertyChanged
     {
+     
+
+
+
         /// <summary>
         /// generer un nouveau login
         /// </summary>
