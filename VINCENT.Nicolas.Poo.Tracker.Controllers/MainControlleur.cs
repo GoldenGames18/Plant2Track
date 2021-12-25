@@ -141,7 +141,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Controllers
             {
                 _repository.CreateGraph(DateTime.Parse(value[0]), DateTime.Parse(value[1]), value[2]);
 
-
+                UpdateView();
                 Graph?.Invoke(this, value);
             }
 

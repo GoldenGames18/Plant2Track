@@ -157,7 +157,6 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
                 List<string> save = new();
                 SaveFilter(dateStart, dateEnd, save);
                 Graph(this, save);
-                UpdatePlot();
                 _erreurDate.Text = "";
             }
             catch (Exception ex)
