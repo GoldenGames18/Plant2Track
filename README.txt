@@ -1,9 +1,14 @@
 
 Pour faire fonctionner le projet :
 
+	Suite a de nombreux test chez moi de clone git il semblerait que le projet de démarage ne soit pas le bon quand le projet est clone 
+
+	Donc Il faudrais changer le projet de start juste à gauche de la fléche vert. 
+
+	En espèrant que cela ne vous pas problème
+
 
 	Merci de déplacer les dossier DataUsers et planningNicolasVincent qui son le projet Datas dans le fichier c:\temp
-	
 
 	Forme final 
 	
