@@ -4,7 +4,7 @@ using VINCENT.Nicolas.Poo.Tracker.Domains;
 
 namespace VINCENT.Nicolas.Poo.Tracker.Datas
 {
-    interface IStorageFactory
+    public interface IStorageFactory
     {
         public void LoadPlanning();
 

@@ -22,6 +22,6 @@ Pour faire fonctionner le projet :
 	Si un problème de fichier est détecter par le prgramme un windows erreur devrais appraitre et expliquer que soit le fichier ets manquant ou ne respecte pas le format
 
 
-
+	Attention 1 test va crée un fichier json donc si les structur des fichier est pas juste cela va entrainer un erreur lors de l'excustion des test
 
 
