@@ -7,11 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker.Gui", "VINCENT.Nicolas.Poo.Tracker.Gui\VINCENT.Nicolas.Poo.Tracker.Gui.csproj", "{6B5ACA67-3FA4-4BF2-A435-39BF6F05F790}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VINCENT.Nicolas.Poo.Tracker.Controllers", "VINCENT.Nicolas.Poo.Tracker.Controllers\VINCENT.Nicolas.Poo.Tracker.Controllers.csproj", "{C672FB57-AC85-4D7C-AD03-B22BE300A788}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker.Controllers", "VINCENT.Nicolas.Poo.Tracker.Controllers\VINCENT.Nicolas.Poo.Tracker.Controllers.csproj", "{C672FB57-AC85-4D7C-AD03-B22BE300A788}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VINCENT.Nicolas.Poo.Tracker.Tests", "VINCENT.Nicolas.Poo.Tracker.Tests\VINCENT.Nicolas.Poo.Tracker.Tests.csproj", "{D6029883-B8E1-4CCA-B20E-0C5A1BE2D7C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker.Tests", "VINCENT.Nicolas.Poo.Tracker.Tests\VINCENT.Nicolas.Poo.Tracker.Tests.csproj", "{D6029883-B8E1-4CCA-B20E-0C5A1BE2D7C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VINCENT.Nicolas.Poo.Tracker.Datas", "VINCENT.Nicolas.Poo.Tracker.Datas\VINCENT.Nicolas.Poo.Tracker.Datas.csproj", "{89AFBA46-3C22-4C58-8231-E41363C69B2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker.Datas", "VINCENT.Nicolas.Poo.Tracker.Datas\VINCENT.Nicolas.Poo.Tracker.Datas.csproj", "{89AFBA46-3C22-4C58-8231-E41363C69B2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenMe", "OpenMe", "{C177EA89-52D3-472A-912C-F88EB44F6313}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMy.txt = ReadMy.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

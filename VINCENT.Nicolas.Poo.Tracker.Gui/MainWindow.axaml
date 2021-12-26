@@ -101,6 +101,7 @@
 				<Button Grid.Column="3" VerticalAlignment="Bottom" Click="Click_Graph"> Générer</Button>
 				</Grid>
 				<StackPanel Margin="5" >
+					<TextBlock FontSize="20" Margin="5" HorizontalAlignment="Center" FontWeight="Bold"> Tâches Terminées</TextBlock>
 					<ScottPlot:AvaPlot Name="PlotContainer" Height="300" />
 				</StackPanel>
 				<StackPanel Width="490">

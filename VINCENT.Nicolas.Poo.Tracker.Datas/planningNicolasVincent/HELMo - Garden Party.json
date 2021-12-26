@@ -1,0 +1,61 @@
+{
+  "name": "HELMo - Garden Party",
+  "planning": [
+    {
+      "description": "Installer electricité",
+      "code": "D007",
+      "dateStart": "2021-09-01",
+      "dateEnd": "2021-09-06",
+      "EffectiveDateStrart": "2021-09-01",
+      "EffectiveDateEnd": "2021-09-06"
+    },
+    {
+      "description": "Installer eau",
+      "code": "G021",
+      "dateStart": "2021-09-01",
+      "dateEnd": "2021-09-05",
+      "EffectiveDateStrart": "2021-09-01",
+      "EffectiveDateEnd": "0001-01-01"
+    },
+    {
+      "description": "Monter scène",
+      "code": "H042",
+      "dateStart": "2021-09-07",
+      "dateEnd": "2021-09-10",
+      "EffectiveDateStrart": "0001-01-01",
+      "EffectiveDateEnd": "0001-01-01"
+    },
+    {
+      "description": "Monter bar",
+      "code": "H042",
+      "dateStart": "2021-09-06",
+      "dateEnd": "2021-09-11",
+      "EffectiveDateStrart": "0001-01-01",
+      "EffectiveDateEnd": "0001-01-01"
+    },
+    {
+      "description": "Installer eclairage",
+      "code": "D007",
+      "dateStart": "2021-09-11",
+      "dateEnd": "2021-09-15",
+      "EffectiveDateStrart": "0001-01-01",
+      "EffectiveDateEnd": "0001-01-01"
+    },
+    {
+      "description": "Valider electricité et hygiène",
+      "code": "F004",
+      "dateStart": "2021-09-12",
+      "dateEnd": "2021-09-17",
+      "EffectiveDateStrart": "0001-01-01",
+      "EffectiveDateEnd": "0001-01-01"
+    },
+    {
+      "description": "Répéter les concerts",
+      "code": "S010",
+      "dateStart": "2021-09-18",
+      "dateEnd": "2021-09-21",
+      "EffectiveDateStrart": "0001-01-01",
+      "EffectiveDateEnd": "0001-01-01"
+    }
+  ]
+}

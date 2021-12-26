@@ -1,0 +1,45 @@
+{
+  "name": "Mariage Claudy et Claudette",
+  "planning": [
+    {
+      "description": "Monter tonnelle",
+      "code": "H042",
+      "dateStart": "2021-09-05",
+      "dateEnd": "2021-09-06",
+      "EffectiveDateStrart": "2021-09-06",
+      "EffectiveDateEnd": "2021-09-08"
+    },
+    {
+      "description": "Installer électricité",
+      "code": "D007",
+      "dateStart": "2021-09-05",
+      "dateEnd": "2021-09-07",
+      "EffectiveDateStrart": "2021-09-05",
+      "EffectiveDateEnd": "2021-09-06"
+    },
+    {
+      "description": "Monter scéne",
+      "code": "H042",
+      "dateStart": "2021-09-08",
+      "dateEnd": "2021-09-09",
+      "EffectiveDateStrart": "0001-01-01",
+      "EffectiveDateEnd": "0001-01-01"
+    },
+    {
+      "description": "Installer éclairage",
+      "code": "D007",
+      "dateStart": "2021-09-08",
+      "dateEnd": "2021-09-09",
+      "EffectiveDateStrart": "0001-01-01",
+      "EffectiveDateEnd": "0001-01-01"
+    },
+    {
+      "description": "Tester avec DJ",
+      "code": "S010",
+      "dateStart": "2021-09-10",
+      "dateEnd": "2021-09-10",
+      "EffectiveDateStrart": "0001-01-01",
+      "EffectiveDateEnd": "0001-01-01"
+    }
+  ]
+}

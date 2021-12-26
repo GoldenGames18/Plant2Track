@@ -86,7 +86,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
         {
             var repository = new SetTaskRepository()
             {
-                new List<Task>(new JsonRepositoty().TakeTaskUserConnected(e.Code))
+                new List<Task>(_json.TakeTaskUserConnected(e.Code))
             };
             _mainWindow.Json = _json;
             _mainWindow.Tasks = repository;

@@ -439,7 +439,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Tests
         {
 
             SetTaskRepository repository = new();
-            repository.SizeWeek(DateTime.Today, DateTime.Today.AddDays(1));
+            repository.SizeWeek(DateTime.Today, DateTime.Today);
             Assert.AreEqual(repository.TabIndex.Length, 1);
 
         }
@@ -473,7 +473,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Tests
         {
 
             SetTaskRepository repository = new();
-            repository.SizeMonth(DateTime.Today, DateTime.Today.AddDays(1));
+            repository.SizeMonth(DateTime.Today, DateTime.Today);
             Assert.AreEqual(repository.TabIndex.Length, 1);
 
         }

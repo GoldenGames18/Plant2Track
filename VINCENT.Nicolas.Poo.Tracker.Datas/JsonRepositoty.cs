@@ -72,7 +72,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Datas
         public List<Task> TakeTaskUserConnected(string code)
         {
             List<Task> _task = new();
-            LoadPlanning();
+            
             foreach (var item in Planning) //to do edit futur
             {
                 _task.AddRange(item.TakeTask(code));
@@ -179,7 +179,7 @@ namespace VINCENT.Nicolas.Poo.Tracker.Datas
         {
 
 
-            string path =@"..\..\..\..\VINCENT.Nicolas.Poo.Tracker.Datas\DataUsers\User.json";
+            string path = @"C:\temp\DataUsers\User.json";
            
 
             JsonSerializer serializer = new();
