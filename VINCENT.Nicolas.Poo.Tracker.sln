@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker.Domains", "VINCENT.Nicolas.Poo.Tracker.Domains\VINCENT.Nicolas.Poo.Tracker.Domains.csproj", "{4609B236-33BA-4FF3-A5E7-434286EFF6D4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker.Gui", "VINCENT.Nicolas.Poo.Tracker.Gui\VINCENT.Nicolas.Poo.Tracker.Gui.csproj", "{6B5ACA67-3FA4-4BF2-A435-39BF6F05F790}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker.Domains", "VINCENT.Nicolas.Poo.Tracker.Domains\VINCENT.Nicolas.Poo.Tracker.Domains.csproj", "{4609B236-33BA-4FF3-A5E7-434286EFF6D4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker.Controllers", "VINCENT.Nicolas.Poo.Tracker.Controllers\VINCENT.Nicolas.Poo.Tracker.Controllers.csproj", "{C672FB57-AC85-4D7C-AD03-B22BE300A788}"
 EndProject
