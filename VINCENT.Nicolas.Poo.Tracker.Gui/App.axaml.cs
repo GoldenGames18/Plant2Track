@@ -96,9 +96,6 @@ namespace VINCENT.Nicolas.Poo.Tracker.Gui
             _mainWindow.Filter += controlleur.Affect;
             _mainWindow.Graph += controlleur.GenerateGraph;
 
-            
-            
-          
         }
 
         

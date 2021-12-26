@@ -13,11 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VINCENT.Nicolas.Poo.Tracker.Datas", "VINCENT.Nicolas.Poo.Tracker.Datas\VINCENT.Nicolas.Poo.Tracker.Datas.csproj", "{89AFBA46-3C22-4C58-8231-E41363C69B2B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenMe", "OpenMe", "{C177EA89-52D3-472A-912C-F88EB44F6313}"
-	ProjectSection(SolutionItems) = preProject
-		ReadMy.txt = ReadMy.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
