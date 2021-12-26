@@ -2,7 +2,6 @@
 Pour faire fonctionner le projet :
 
 
-
 	Merci de déplacer les dossier DataUsers et planningNicolasVincent qui son le projet Datas dans le fichier c:\temp
 	
 
